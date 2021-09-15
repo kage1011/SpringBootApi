@@ -6,12 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmployeeService {
-    public List<Employee> findAll();
-    public Employee getById(Integer integer);
-    public void deleteAll();
-    List<Employee> getAll();
-    Employee addEmployee(Employee employee);
-    Employee updateEmployee(Employee employee);
-    void deleteEmployee(int id);
+
+    public List<Employee> getAll();
+    public Employee getEmployeeById(int id);
+    public void addEmployee(Employee e);
+    public void updateEmployee(Employee e);
+    public void deleteEmployee(int id);
 
 }

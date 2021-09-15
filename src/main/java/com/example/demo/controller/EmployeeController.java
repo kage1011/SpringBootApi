@@ -15,24 +15,25 @@ public class EmployeeController {
         EmployeeServiceImpl employeeService;
 
         @GetMapping
-        public List<Employee> getAll() {
+        public List<Employee> getAllEmployee(){
             return employeeService.getAll();
+        }
+        @GetMapping("/employee")
+        public Employee getEmployeeById(@RequestParam("id") int id){
+            return employeeService.getEmployeeById(id);
         }
 
         @PostMapping
-        public Employee add(Employee employee) {
-            employeeService.addEmployee(employee);
-            return employee;
+        public void addEmployee(@RequestBody Employee e) {
+            employeeService.addEmployee(e);
         }
-
         @PutMapping
-        public Employee update(Employee employee) {
-            employeeService.updateEmployee(employee);
-            return employee;
+        public void updateEmployee(@RequestBody Employee e) {
+            employeeService.updateEmployee(e);
+            System.out.println("update successfully");
         }
-
-        @DeleteMapping("/{id}")
-        public void delete(@PathVariable int id) {
+        @DeleteMapping
+        public void deleteGv(@RequestParam("id") int id) {
             employeeService.deleteEmployee(id);
         }
     }
